@@ -4,17 +4,23 @@
   <meta charset="UTF-8">
   <title>ログイン - 学園祭スタンプラリー</title>
   <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="container">
-    <h2>ログイン</h2>
-    <form onsubmit="handleLogin(event)">
-      <label>ユーザー名: <input type="text" id="username" required></label><br><br>
-      <label>パスワード: <input type="password" id="password" required></label><br><br>
-      <button type="submit">ログイン</button>
-    </form>
-  </div>
+ <head>
+ <link href="1.css" rel="stylesheet" type="text/css">
+ </head>
 
+ <section id="contact">
+  <h2>ログイン</h2>
+  <from>
+   <div>
+    <label>ニックネーム</label>
+    <input type="text" class="formparts">
+    <label>5桁の番号</label>
+    <input type="number" class="formparts">
+    <input type="submit" value="送信" class="formbutton">
+   </div>
+  </from>
+ </section>
+ 
   <script>
     function handleLogin(event) {
       event.preventDefault();
