@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ログイン - 学園祭スタンプラリー</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h2>ログイン</h2>
+    <form onsubmit="handleLogin(event)">
+      <label>ユーザー名: <input type="text" id="username" required></label><br><br>
+      <label>パスワード: <input type="password" id="password" required></label><br><br>
+      <button type="submit">ログイン</button>
+    </form>
+  </div>
+
+  <script>
+    function handleLogin(event) {
+      event.preventDefault();
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // 仮のログイン認証（本番はFirebaseなどに接続してもOK）
+      if (username === "admin" && password === "1234") {
+        alert("ログイン成功！");
+        window.location.href = "stampcard.html"; // ← ログイン成功後の画面に遷移
+      } else {
+        alert("ユーザー名またはパスワードが違います。");
+      }
+    }
+  </script>
+</body>
+</html>
