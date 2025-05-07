@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>スタンプカード</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 30px;
+      background-color: #f8f8f8;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    .card {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .stamp {
+      width: 100px;
+      height: 100px;
+      background-color: #fff;
+      border: 2px dashed #999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .stamp.stamped {
+      background-color: #ff5252;
+      color: white;
+      font-weight: bold;
+      border: 2px solid #ff5252;
+    }
+  </style>
+</head>
+<body>
+  <h2>スタンプカード</h2>
+  <p>スタンプをクリックして押せます！</p>
+
+  <div class="card">
+    <!-- 9個のスタンプ -->
+    <div class="stamp" onclick="toggleStamp(this)">1</div>
+    <div class="stamp" onclick="toggleStamp(this)">2</div>
+    <div class="stamp" onclick="toggleStamp(this)">3</div>
+    <div class="stamp" onclick="toggleStamp(this)">4</div>
+    <div class="stamp" onclick="toggleStamp(this)">5</div>
+    <div class="stamp" onclick="toggleStamp(this)">6</div>
+    <div class="stamp" onclick="toggleStamp(this)">7</div>
+    <div class="stamp" onclick="toggleStamp(this)">8</div>
+    <div class="stamp" onclick="toggleStamp(this)">9</div>
+  </div>
+
+  <script>
+    function toggleStamp(elem) {
+      elem.classList.toggle("stamped");
+      if (elem.classList.contains("stamped")) {
+        elem.textContent = "✅";
+      } else {
+        elem.textContent = [...elem.parentNode.children].indexOf(elem) + 1;
+      }
+    }
+  </script>
+</body>
+</html>
