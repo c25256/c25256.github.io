@@ -18,30 +18,41 @@
   </div>
 
   <script>
-    function handleSignup(event) {
-      event.preventDefault();
+  function handleSignup(event) {
+    event.preventDefault();
 
-      const username = document.getElementById('newUsername').value;
-      const password = document.getElementById('newPassword').value;
-      const confirmPassword = document.getElementById('confirmPassword').value;
+    const username = document.getElementById('newUsername').value;
+    const password = document.getElementById('newPassword').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
 
-      if (password !== confirmPassword) {
-        alert("パスワードが一致しません！");
-        return;
-      }
+    if (password !== confirmPassword) {
+      alert("パスワードが一致しません！");
+      return;
+    }
 
-      if (password.length < 6) {
-        alert("パスワードは6文字以上で入力してください！");
-        return;
-      }
+    if (password.length < 6) {
+      alert("パスワードは6文字以上で入力してください！");
+      return;
+    }
 
-      // ローカルストレージに保存（仮機能）
-      localStorage.setItem('username', username);
-      localStorage.setItem('password', password);
+    const formData = new FormData();
+    formData.append("username", username);
+    formData.append("password", password);
 
+    // ★ここに Google Apps Script の URL を入れる
+    fetch("https://script.google.com/macros/s/AKfycbx57eqAUbAmByZqyDkH7XU4uMS3QRF-29Du2MUU9glaOHYGKwd6Ey1CbnFG3XGkpBBs_Q/exec", {
+      method: "POST",
+      body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
       alert("登録が完了しました！ログイン画面へ移動します。");
       window.location.href = "login.html";
-    }
-  </script>
-</body>
-</html>
+    })
+    .catch(error => {
+      alert("登録中にエラーが発生しました。");
+      console.error("Error:", error);
+    });
+  }
+</script>
+  
