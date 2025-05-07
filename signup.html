@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>新規登録 - 学園祭スタンプラリー</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h2>新規登録</h2>
+    <form onsubmit="handleSignup(event)">
+      <label>ユーザー名: <input type="text" id="newUsername" required></label><br><br>
+      <label>パスワード: <input type="password" id="newPassword" required></label><br><br>
+      <button type="submit">登録</button>
+    </form>
+    <p><a href="login.html">すでにアカウントをお持ちの方はこちら</a></p>
+  </div>
+
+  <script>
+    function handleSignup(event) {
+      event.preventDefault();
+
+      const username = document.getElementById('newUsername').value;
+      const password = document.getElementById('newPassword').value;
+
+      // ローカルストレージに保存（簡易的な仮機能）
+      localStorage.setItem('username', username);
+      localStorage.setItem('password', password);
+
+      alert("登録が完了しました！ログイン画面へ移動します。");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>
