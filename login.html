@@ -16,22 +16,22 @@
     <p><a href="signup.html">アカウントをお持ちでない方はこちら</a></p>
   </div>
   <script>
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        if (data.result === "success") {
-          alert("ログイン成功！");
-           // ここでスタンプラリーのトップページなどに遷移させる
-          window.location.href = "main.html"; // 例：メイン画面
-        } else {
-          alert("ユーザー名またはパスワードが違います。");
-        }
-      })
-      .catch(error => {
-        console.error("通信エラー:", error);
-        alert("ログイン中にエラーが発生しました。");
-      });
-  }
+     fetch(url)
+       .then(response => response.json())
+       .then(data => {
+         if (data.result === "success") {
+           alert("ログイン成功！");
+            // ここでスタンプラリーのトップページなどに遷移させる
+           window.location.href = "main.html"; // 例：メイン画面
+         } else {
+           alert("ユーザー名またはパスワードが違います。");
+         }
+       })
+       .catch(error => {
+         console.error("通信エラー:", error);
+         alert("ログイン中にエラーが発生しました。");
+       });
+   }
   </script>
 </body>
 </html>
