@@ -16,15 +16,7 @@
     <p><a href="signup.html">アカウントをお持ちでない方はこちら</a></p>
   </div>
 
-  <script>
-    function handleLogin(event) {
-      event.preventDefault();
-
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
-
-      const url = `https://script.google.com/macros/s/AKfycbyqCi6PSdUxNLrCdscISKme7RTUw8PjJXBPjxIVQBUdkE_O8IsTmvsWgAGFA4ApsFnmpA/exec?nickname=${encodeURIComponent(username)}&number=${encodeURIComponent(password)}`;
-
+ 
       fetch(url)
         .then(response => response.json())
         .then(data => {
